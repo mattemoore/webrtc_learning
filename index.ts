@@ -1,3 +1,5 @@
+import adapter from "webrtc-adapter";
+
 const openMediaDevices = async (constraints) => {
     return await navigator.mediaDevices.getUserMedia(constraints);
 }
