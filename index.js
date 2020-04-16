@@ -43,10 +43,26 @@ var openMediaDevices = function (constraints) { return __awaiter(_this, void 0, 
         }
     });
 }); };
-try {
-    var stream = openMediaDevices({ video: 'true', audio: 'true' });
-    console.log('Got media stream:', stream);
-}
-catch (error) {
-    console.error('Error opening media stream:', error);
+function init() {
+    return __awaiter(this, void 0, void 0, function () {
+        var stream, videoElement, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, openMediaDevices({ video: 'true', audio: 'true' })];
+                case 1:
+                    stream = _a.sent();
+                    videoElement = document.querySelector('video#localVideo');
+                    stream.getAudioTracks()[0].enabled = false;
+                    videoElement.srcObject = stream;
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_1 = _a.sent();
+                    console.error('Error opening media stream:', error_1);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
 }
