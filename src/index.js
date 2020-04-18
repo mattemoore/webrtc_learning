@@ -14,7 +14,7 @@ async function init() {
         }
         const stream = await openMediaDevices(constraints);
         const videoElement = document.querySelector('video#localVideo');
-        //stream.getAudioTracks()[0].enabled = false;
+        stream.getAudioTracks()[0].enabled = false;
         videoElement.srcObject = stream;
     } catch (error) {
         console.error('Error opening media stream:', error)
